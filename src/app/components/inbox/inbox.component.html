@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div style="margin: 5px;">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Bandeja de Entrada</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="content">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Carpetas</h3>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i> Bandeja de Entrada
+                    <span class="badge bg-primary float-right">{{ totalEmails }}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Bandeja de Entrada</h3>
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 200px;">
+                  <input 
+                    type="text" 
+                    [(ngModel)]="searchTerm" 
+                    (keyup.enter)="onSearch()"
+                    class="form-control" 
+                    placeholder="Buscar correo">
+                  <div class="input-group-append">
+                    <button (click)="onSearch()" class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div *ngIf="isLoading" class="text-center p-4">
+              <i class="fas fa-spinner fa-spin fa-2x"></i>
+              <p>Cargando correos...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div *ngIf="error" class="text-center p-4">
+              <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+              <p class="text-danger">{{ error }}</p>
+              <button (click)="onRetry()" class="btn btn-primary btn-sm">Reintentar</button>
+            </div>
+
+            <!-- Email List Component -->
+            <app-email-list 
+              *ngIf="!isLoading && !error"
+              [emails]="filteredEmails"
+              (refresh)="onRefresh()">
+            </app-email-list>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

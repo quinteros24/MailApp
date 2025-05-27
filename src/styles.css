@@ -1,0 +1,56 @@
+/* Estilos adicionales para el modal */
+#emailModal .modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#emailModal .modal-body {
+  flex: 1;
+  padding: 20px;
+}
+
+#modal-body-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Mejorar el scroll */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Estilos para correos leídos/no leídos */
+.email-item.unread {
+  font-weight: bold;
+}
+
+.email-item.read {
+  font-weight: normal;
+  color: #6c757d;
+}
+
+.selected {
+  background-color: #e3f2fd !important;
+}
+
+.loading-spinner, .error-message {
+  text-align: center;
+  padding: 2rem;
+}

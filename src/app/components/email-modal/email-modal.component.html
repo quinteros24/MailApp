@@ -1,0 +1,16 @@
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emailModalLabel">{{ email?.subject }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>De:</strong> {{ email?.from }}</p>
+        <p><strong>Fecha:</strong> {{ formatDate(email?.sent_at || '') }}</p>
+        <hr>
+        <pre id="modal-body-content">{{ email?.body }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
