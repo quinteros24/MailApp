@@ -1,0 +1,37 @@
+# Dependencias
+node_modules
+npm-debug.log*
+
+# Archivos de construcción
+dist
+.angular
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Logs
+logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de prueba
+coverage
+*.spec.ts
+
+# Archivos de configuración local
+.env
+.env.local

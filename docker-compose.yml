@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mailapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mailapp-container
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    networks:
+      - mailapp-network
+
+networks:
+  mailapp-network:
+    driver: bridge
